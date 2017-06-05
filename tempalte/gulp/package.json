@@ -13,8 +13,7 @@
     "gulp-plumber": "*",
     "gulp-sourcemaps": "*",
     "gulp-sass": "*",
-    "gulp-minify-css": "*",
-    "gulp-strip-debug": "*",
+    "gulp-clean-css": "*",
     "gulp-typescript": "*",
     "gulp-uglify": "*",
     "typescript": "*"

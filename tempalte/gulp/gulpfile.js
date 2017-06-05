@@ -11,10 +11,9 @@ var sourcemaps = require('gulp-sourcemaps');
 
 var typescript = require('gulp-typescript');
 var uglify = require('gulp-uglify');
-var stripDebug = require('gulp-strip-debug');
 
 var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
+var cleanCss = require('gulp-clean-css');
 
 //----------------------------------------
 gulp.task('typescript', function() {
@@ -22,7 +21,6 @@ gulp.task('typescript', function() {
 		.pipe(plumber())
 		.pipe(sourcemaps.init('./'))
 		.pipe(typescript({ target: 'ES5', removeComments: true, outFile: 'main.js' }))
-		//.pipe(stripDebug())
 		.pipe(uglify())
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(DST_DIR + '/script'));
@@ -34,7 +32,7 @@ gulp.task('sass', function () {
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
-		.pipe(minifyCss({ advanced: false }))
+		.pipe(cleanCss())
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(DST_DIR + '/style'));
 });
