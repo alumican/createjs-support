@@ -1,0 +1,34 @@
+Icon
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+*.swp
+*~.nib
+*.webloc
+
+### Application ###
+*.apk
+*.ipa
+*.app
+*.exe
+
+
+### FlashBuilder ###
+bin/
+bin-debug/
+bin-release/
+bin-release-tmp/
+bin-release-temp/
+
+
+### Project ###
+src/image/
+src/clip/
+src/sound/
+src/script/**/*.js
+deploy/media/
+log/
+gulp/node_modules/
