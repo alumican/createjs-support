@@ -15,6 +15,7 @@ namespace alm {
 			this.view = view;
 			this.isInitializing = false;
 			this.isInitialized = false;
+			this.isReady = false;
 			this.isShowing = false;
 			this.isShown = true;
 			this.isHiding = false;
@@ -35,9 +36,16 @@ namespace alm {
 			if (this.isInitializing || this.isInitialized) return;
 			this.isInitializing = true;
 			this.view = this.implInitialize();
+			this.throwError("view is null", !this.view);
 			this.hide(false);
 			this.isInitializing = false;
 			this.isInitialized = true;
+		}
+
+		public ready():void {
+			this.throwError("ready() was called without being initialized", !this.isInitialized);
+			this.implReady();
+			this.isReady = true;
 		}
 
 		public finalize():void {
@@ -45,10 +53,12 @@ namespace alm {
 		}
 
 		public show(useTransition:boolean = true):void {
+			if (this.isShown) return;
 			this.getShowCommand(useTransition).execute();
 		}
 
 		public hide(useTransition:boolean = true):void {
+			if (!this.isShown) return;
 			this.getHideCommand(useTransition).execute();
 		}
 
@@ -57,6 +67,8 @@ namespace alm {
 			command.addCommand(
 				new JPP.Func(():void => {
 					if (this.isShown) return;
+					this.throwError("getShowCommand() was called without being initialized", !this.isInitialized);
+					this.throwError("getShowCommand() was called without being ready", !this.isReady);
 					this.isShown = true;
 					this.isShowing = true;
 					if (this.hideCommand) this.hideCommand.interrupt();
@@ -78,6 +90,10 @@ namespace alm {
 			command.addCommand(
 				new JPP.Func(():void => {
 					if (!this.isShown) return;
+					if (!this.isInitializing) {
+						this.throwError("getHideCommand() was called without being initialized", !this.isInitialized);
+						this.throwError("getHideCommand() was called without being ready", !this.isReady);
+					}
 					this.isShown = false;
 					this.isHiding = true;
 					if (this.showCommand) this.showCommand.interrupt();
@@ -95,9 +111,21 @@ namespace alm {
 		}
 
 		protected abstract implInitialize():T;
+		protected abstract implReady():void;
 		protected abstract implFinalize():void;
 		protected abstract implShow(view:T, useTransition:boolean):JPP.Command;
 		protected abstract implHide(view:T, useTransition:boolean):JPP.Command;
+
+
+
+
+
+		private throwError(message:string, condition:boolean = true):void {
+			if (condition) {
+				throw new Error("[View] ERROR : " + message);
+			}
+		}
+
 
 
 
@@ -113,6 +141,9 @@ namespace alm {
 
 		public getIsInitialized():boolean { return this.isInitialized; }
 		private isInitialized:boolean;
+
+		public getIsReady():boolean { return this.isReady; }
+		private isReady:boolean;
 
 		public getIsShowing():boolean { return this.isShowing; }
 		private isShowing:boolean;

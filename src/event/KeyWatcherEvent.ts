@@ -26,6 +26,11 @@ namespace alm {
 		constructor(eventType:string, bubbles:boolean = false, cancelable:boolean = false, jqueryEvent:JQueryKeyEventObject = null) {
 			super(eventType, bubbles, cancelable);
 			this.jqueryEvent = jqueryEvent;
+			this.key = this.jqueryEvent.key;
+			this.keyCode = this.jqueryEvent.keyCode;
+			this.altKey = this.jqueryEvent.altKey;
+			this.ctrlKey = this.jqueryEvent.ctrlKey;
+			this.shiftKey = this.jqueryEvent.shiftKey;
 		}
 
 
@@ -43,7 +48,7 @@ namespace alm {
 		}
 
 		public toString():string {
-			return "[KeyWatcherEvent (type=" + this.type + ")]";
+			return "[KeyWatcherEvent (type=" + this.type + " key=" + this.key + ")]";
 		}
 
 
@@ -57,5 +62,10 @@ namespace alm {
 		// --------------------------------------------------
 
 		public jqueryEvent:JQueryKeyEventObject;
+		public key:string;
+		public keyCode:number;
+		public altKey:boolean;
+		public ctrlKey:boolean;
+		public shiftKey:boolean;
 	}
 }
