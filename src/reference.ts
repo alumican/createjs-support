@@ -11,6 +11,7 @@
 /// <reference path="util/Num.ts" />
 /// <reference path="util/CommandUtil.ts" />
 /// <reference path="util/AnimateUtil.ts" />
+/// <reference path="util/Boxer.ts" />
 
 /// <reference path="job/Timer.ts" />
 /// <reference path="event/TimerEvent.ts" />
@@ -18,6 +19,15 @@
 /// <reference path="job/KeyWatcher.ts" />
 /// <reference path="event/KeyWatcherEvent.ts" />
 /// <reference path="var/KeyCode.ts" />
+
+/// <reference path="job/ResizeWatcher.ts" />
+/// <reference path="event/ResizeWatcherEvent.ts" />
+
+/// <reference path="job/ScrollWatcher.ts" />
+/// <reference path="event/ScrollWatcherEvent.ts" />
+
+/// <reference path="job/AssetLoader.ts" />
+/// <reference path="event/AssetLoaderEvent.ts" />
 
 /// <reference path="view/View.ts" />
 /// <reference path="event/ViewEvent.ts" />

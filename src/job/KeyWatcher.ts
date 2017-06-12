@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path="../reference.ts" />
 
 namespace alm {
 
@@ -57,10 +57,6 @@ namespace alm {
 			$window.off("keydown", this.windowKeyDownHandler);
 			$window.off("keyup", this.windowKeyUpHandler);
 		}
-
-
-
-
 
 		public static addEventListener(eventType:string, listener:(event:KeyWatcherEvent) => void, useCapture:boolean = false):void {
 			this.initialize();

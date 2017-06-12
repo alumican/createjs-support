@@ -2,7 +2,7 @@
 
 namespace alm {
 
-	export class ViewEvent extends createjs.Event {
+	export class ScrollWatcherEvent extends createjs.Event {
 
 		// --------------------------------------------------
 		//
@@ -10,7 +10,7 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		public static INIT:string = "init";
+		static SCROLL:string = "scroll";
 
 
 
@@ -22,8 +22,9 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, bubbles:boolean = false, cancelable:boolean = false) {
+		constructor(eventType:string, bubbles:boolean = false, cancelable:boolean = false, jqueryEvent:JQueryEventObject = null) {
 			super(eventType, bubbles, cancelable);
+			this.jqueryEvent = jqueryEvent;
 		}
 
 
@@ -36,12 +37,12 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		public clone():ViewEvent {
-			return new ViewEvent(this.type, this.bubbles, this.cancelable);
+		public clone():ScrollWatcherEvent {
+			return new ScrollWatcherEvent(this.type, this.bubbles, this.cancelable, this.jqueryEvent);
 		}
 
 		public toString():string {
-			return "[ViewEvent (type=" + this.type + ")]";
+			return "[ScrollWatcherEvent (type=" + this.type + ")]";
 		}
 
 
@@ -53,5 +54,7 @@ namespace alm {
 		// MEMBER
 		//
 		// --------------------------------------------------
+
+		public jqueryEvent:JQueryEventObject;
 	}
 }

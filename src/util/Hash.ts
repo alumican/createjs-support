@@ -1,3 +1,5 @@
+/// <reference path="../reference.ts" />
+
 namespace alm {
 
 	// var hoge:Hash<number> = {};

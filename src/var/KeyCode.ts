@@ -1,4 +1,4 @@
-/// <reference path="../../reference.ts" />
+/// <reference path="../reference.ts" />
 
 // Original
 // https://github.com/nfriend/ts-keycode-enum
