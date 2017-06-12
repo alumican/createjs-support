@@ -38,7 +38,7 @@ namespace alm {
 			this.isRunning = true;
 
 			this.initialize();
-			console.log("[ScrollWatcher] start");
+			trace("[ScrollWatcher] start");
 
 			jQuery(window).on("resize", this.windowScrollHandler);
 			jQuery(window).on("scroll", this.windowScrollHandler);
@@ -51,7 +51,7 @@ namespace alm {
 			this.isRunning = false;
 
 			this.initialize();
-			console.log("[ScrollWatcher] stop");
+			trace("[ScrollWatcher] stop");
 
 			jQuery(window).off("resize", this.windowScrollHandler);
 			jQuery(window).off("scroll", this.windowScrollHandler);

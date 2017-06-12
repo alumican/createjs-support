@@ -20,6 +20,7 @@ namespace alm {
 			this.isShown = true;
 			this.isHiding = false;
 			this.autoHideWithInit = true;
+			this.name = "";
 		}
 
 
@@ -36,14 +37,15 @@ namespace alm {
 			if (this.isInitializing || this.isInitialized) return;
 			this.isInitializing = true;
 			this.view = this.implInitialize();
-			this.throwError("view is null", !this.view);
+			throwError(this.name || this, "view is null", !this.view);
 			this.hide(false);
 			this.isInitializing = false;
 			this.isInitialized = true;
 		}
 
 		public ready():void {
-			this.throwError("ready() was called without being initialized", !this.isInitialized);
+			if (this.isReady) return;
+			throwError(this.name || this, "ready() was called without being initialized", !this.isInitialized);
 			this.implReady();
 			this.isReady = true;
 		}
@@ -67,11 +69,15 @@ namespace alm {
 			command.addCommand(
 				new JPP.Func(():void => {
 					if (this.isShown) return;
-					this.throwError("getShowCommand() was called without being initialized", !this.isInitialized);
-					this.throwError("getShowCommand() was called without being ready", !this.isReady);
+					throwError(this.name || this, "getShowCommand() was called without being initialized", !this.isInitialized);
+					throwWarn(this.name || this, "getShowCommand() was called without being ready", !this.isReady);
 					this.isShown = true;
 					this.isShowing = true;
-					if (this.hideCommand) this.hideCommand.interrupt();
+					this.isHiding = false;
+					if (this.hideCommand) {
+						this.hideCommand.interrupt();
+						this.hideCommand = null;
+					}
 					this.showCommand = command;
 					command.insertCommand(
 						this.implShow(this.view, useTransition),
@@ -91,12 +97,16 @@ namespace alm {
 				new JPP.Func(():void => {
 					if (!this.isShown) return;
 					if (!this.isInitializing) {
-						this.throwError("getHideCommand() was called without being initialized", !this.isInitialized);
-						this.throwError("getHideCommand() was called without being ready", !this.isReady);
+						throwError(this.name || this, "getHideCommand() was called without being initialized", !this.isInitialized);
+						throwWarn(this.name || this, "getHideCommand() was called without being ready", !this.isReady);
 					}
 					this.isShown = false;
 					this.isHiding = true;
-					if (this.showCommand) this.showCommand.interrupt();
+					this.isShowing = false;
+					if (this.showCommand) {
+						this.showCommand.interrupt();
+						this.showCommand = null;
+					}
 					this.hideCommand = command;
 					command.insertCommand(
 						this.implHide(this.view, useTransition),
@@ -115,16 +125,6 @@ namespace alm {
 		protected abstract implFinalize():void;
 		protected abstract implShow(view:T, useTransition:boolean):JPP.Command;
 		protected abstract implHide(view:T, useTransition:boolean):JPP.Command;
-
-
-
-
-
-		private throwError(message:string, condition:boolean = true):void {
-			if (condition) {
-				throw new Error("[View] ERROR : " + message);
-			}
-		}
 
 
 
@@ -162,6 +162,10 @@ namespace alm {
 		public getAutoHideWithInit():boolean { return this.autoHideWithInit; }
 		public setAutoHideWithInit(value:boolean):void { this.autoHideWithInit = value; }
 		private autoHideWithInit:boolean;
+
+		public getName():string { return this.name; }
+		public setName(value:string):void { this.name = value; }
+		private name:string;
 
 		private showCommand:JPP.Command;
 		private hideCommand:JPP.Command;

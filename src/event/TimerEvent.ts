@@ -40,7 +40,7 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		public clone():ViewEvent {
+		public clone():TimerEvent {
 			return new TimerEvent(this.type, this.bubbles, this.cancelable, this.elapsedCount, this.repeatCount, this.restCount);
 		}
 

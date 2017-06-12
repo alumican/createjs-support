@@ -38,7 +38,7 @@ namespace alm {
 			this.isRunning = true;
 
 			this.initialize();
-			console.log("[ResizeWatcher] start");
+			trace("[ResizeWatcher] start");
 
 			jQuery(window).on("resize", this.windowResizeHandler);
 			this.apply();
@@ -50,7 +50,7 @@ namespace alm {
 			this.isRunning = false;
 
 			this.initialize();
-			console.log("[ResizeWatcher] stop");
+			trace("[ResizeWatcher] stop");
 
 			jQuery(window).off("resize", this.windowResizeHandler);
 		}

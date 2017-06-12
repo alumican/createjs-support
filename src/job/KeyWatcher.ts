@@ -38,7 +38,7 @@ namespace alm {
 			this.isRunning = true;
 
 			this.initialize();
-			console.log("[KeyWatcher] start");
+			trace("[KeyWatcher] start");
 
 			const $window:JQuery = jQuery(window);
 			$window.on("keydown", this.windowKeyDownHandler);
@@ -51,7 +51,7 @@ namespace alm {
 			this.isRunning = false;
 
 			this.initialize();
-			console.log("[KeyWatcher] stop");
+			trace("[KeyWatcher] stop");
 
 			const $window:JQuery = jQuery(window);
 			$window.off("keydown", this.windowKeyDownHandler);

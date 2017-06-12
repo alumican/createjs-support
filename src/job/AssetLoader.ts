@@ -35,8 +35,9 @@ namespace alm {
 			this.isCanceled = false;
 
 			this.loader = new createjs.LoadQueue();
-
 			this.eventDispatcher = new createjs.EventDispatcher();
+
+			this.windowImages = window["images"] = window["images"] || {};
 		}
 
 		public static load():void {
@@ -44,7 +45,7 @@ namespace alm {
 			this.isLoading = true;
 
 			this.initialize();
-			console.log("[AssetLoader] load");
+			Logger.verbose("[AssetLoader] load");
 
 			this.setListener();
 			this.loader.load();
@@ -55,18 +56,23 @@ namespace alm {
 			if (id) {
 				this.loader.loadFile({ id: id, src: filePath });
 			} else {
-				this.loader.loadFile(filePath);
+				this.loader.loadFile(filePath, false);
 			}
 		}
 
 		public static addFiles(files:({id:string,src:string}|string)[]):void {
 			this.initialize();
-			this.loader.loadManifest(files);
+			this.loader.loadManifest(files, false);
 		}
 
 		public static addManifest(jsonPath:string):void {
 			this.initialize();
-			this.loader.loadManifest(jsonPath);
+			this.loader.loadManifest(jsonPath, false);
+		}
+
+		public static addAnimateAsset(basePath:string):void {
+			this.initialize();
+			this.loader.loadManifest(this.getAnimateManifest(basePath), false);
 		}
 
 		public static cancel():void {
@@ -75,7 +81,7 @@ namespace alm {
 			this.isCanceled = true;
 
 			this.initialize();
-			console.log("[AssetLoader] cancel");
+			Logger.verbose("[AssetLoader] cancel");
 
 			this.loader.cancel();
 		}
@@ -86,30 +92,34 @@ namespace alm {
 			this.isCanceled = false;
 
 			this.initialize();
-			console.log("[AssetLoader] close");
+			Logger.verbose("[AssetLoader] close");
 
 			this.loader.close();
 		}
 
 		public static clear():void {
 			this.initialize();
-			console.log("[AssetLoader] clear");
+			Logger.verbose("[AssetLoader] clear");
 
 			this.clearListener();
 			this.loader.destroy();
 			this.loader = new createjs.LoadQueue();
 		}
 
+		public static getResult(idOrPath:string):any {
+			return this.loader.getResult(idOrPath);
+		}
 
 
 
 
-		public static addEventListener(eventType:string, listener:(event:ResizeWatcherEvent) => void, useCapture:boolean = false):void {
+
+		public static addEventListener(eventType:string, listener:(event:AssetLoaderEvent) => void, useCapture:boolean = false):void {
 			this.initialize();
 			this.eventDispatcher.addEventListener(eventType, listener, useCapture);
 		}
 
-		public static removeEventListener(eventType:string, listener:(event:ResizeWatcherEvent) => void, useCapture:boolean = false):void {
+		public static removeEventListener(eventType:string, listener:(event:AssetLoaderEvent) => void, useCapture:boolean = false):void {
 			this.initialize();
 			this.eventDispatcher.removeEventListener(eventType, listener, useCapture);
 		}
@@ -138,28 +148,54 @@ namespace alm {
 
 
 
+		private static getAnimateManifest(basePath:string = ""):object {
+			const manifest:{src:string,id:string}[] = window["lib"]["properties"]["manifest"];
+			if (basePath != "") {
+				if (basePath.substr(-1, 1) != "/") {
+					basePath = basePath + "/";
+				}
+				const updated:{src:string,id:string}[] = [];
+				const numFiles:number = manifest.length;
+				let file:{src:string,id:string};
+				for (let i:number = 0; i < numFiles; ++i) {
+					file = manifest[i];
+					updated.push({ src: basePath + file.src, id: file.id });
+				}
+				return updated;
+			} else {
+				return manifest;
+			}
+		}
+
+
+
+
+
 		private static loaderFileLoadHandler = (event:createjs.Event):void => {
-			console.log("[AssetLoader] file load : progress = " + event.progress, " (" + event.loaded + " / " + event.total);
-			AssetLoader.eventDispatcher.dispatchEvent(new AssetLoaderEvent(AssetLoaderEvent.FILE_LOAD, false, false, event.progress, event.loaded, event.total, event.result));
+			Logger.verbose("[AssetLoader] file load");
+			const itemId:string = event.item.id;
+			const result:HTMLImageElement = event.result;
+			if (itemId) AssetLoader.windowImages[itemId] = result;
+			AssetLoader.eventDispatcher.dispatchEvent(new AssetLoaderEvent(AssetLoaderEvent.FILE_LOAD, false, false, event.progress, event.loaded, event.total, result));
 		};
 
 		private static loaderErrorHandler = (event:createjs.ErrorEvent):void => {
-			console.log("[AssetLoader] error : title = " + event.title + ", message = " + event.message);
+			Logger.verbose("[AssetLoader] error : title = " + event.title + ", message = " + event.message);
 			AssetLoader.eventDispatcher.dispatchEvent(new AssetLoaderEvent(AssetLoaderEvent.ERROR));
 		};
 
 		private static loaderProgressHandler = (event:createjs.ProgressEvent):void => {
-			console.log("[AssetLoader] progress : progress = " + event.progress, " (" + event.loaded + " / " + event.total);
+			Logger.verbose("[AssetLoader] progress : progress = " + event.progress, " (" + event.loaded + " / " + event.total + ")");
 			AssetLoader.eventDispatcher.dispatchEvent(new AssetLoaderEvent(AssetLoaderEvent.PROGRESS, false, false, event.progress, event.loaded, event.total));
 		};
 
 		private static loaderFileErrorHandler = (event:createjs.Event):void => {
-			console.log("[AssetLoader] file error : " + event.error);
+			Logger.verbose("[AssetLoader] file error : " + event.error);
 			AssetLoader.eventDispatcher.dispatchEvent(new AssetLoaderEvent(AssetLoaderEvent.FILE_ERROR, false, false, event.progress, event.loaded, event.total));
 		};
 
 		private static loaderCompleteHandler = (event:createjs.Event):void => {
-			console.log("[AssetLoader] complete");
+			Logger.verbose("[AssetLoader] complete");
 			AssetLoader.eventDispatcher.dispatchEvent(new AssetLoaderEvent(AssetLoaderEvent.COMPLETE, false, false, event.progress, event.loaded, event.total));
 		};
 
@@ -182,9 +218,9 @@ namespace alm {
 		public static getIsCanceled():boolean { return this.isCanceled; }
 		private static isCanceled:boolean;
 
-		private static loader:createjs.LoadQueue;
-
 		private static isInitialized:boolean = false;
 		private static eventDispatcher:createjs.EventDispatcher = null;
+		private static loader:createjs.LoadQueue;
+		private static windowImages:alm.Hash<HTMLImageElement>;
 	}
 }

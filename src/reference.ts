@@ -12,6 +12,7 @@
 /// <reference path="util/CommandUtil.ts" />
 /// <reference path="util/AnimateUtil.ts" />
 /// <reference path="util/Boxer.ts" />
+/// <reference path="util/Logger.ts" />
 
 /// <reference path="job/Timer.ts" />
 /// <reference path="event/TimerEvent.ts" />
@@ -30,4 +31,3 @@
 /// <reference path="event/AssetLoaderEvent.ts" />
 
 /// <reference path="view/View.ts" />
-/// <reference path="event/ViewEvent.ts" />
