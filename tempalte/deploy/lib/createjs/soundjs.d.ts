@@ -20,8 +20,8 @@
 // /// <reference types="preloadjs" />
 
 // Added
-/// <reference path="../createjs/createjs-lib.d.ts" />
-/// <reference path="../preloadjs/preloadjs.d.ts" />
+/// <reference path="./createjs-lib.d.ts" />
+/// <reference path="./preloadjs.d.ts" />
 // --------------------------------------------------
 
 

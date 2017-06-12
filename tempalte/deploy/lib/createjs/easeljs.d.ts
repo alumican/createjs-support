@@ -20,8 +20,8 @@
 // /// <reference types="tweenjs" />
 
 // Added
-/// <reference path="../createjs/createjs-lib.d.ts" />
-/// <reference path="../tweenjs/tweenjs.d.ts" />
+/// <reference path="./createjs-lib.d.ts" />
+/// <reference path="./tweenjs.d.ts" />
 // --------------------------------------------------
 
 

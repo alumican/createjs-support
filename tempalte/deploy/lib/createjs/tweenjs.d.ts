@@ -19,7 +19,7 @@
 // /// <reference types="createjs-lib" />
 
 // Added
-/// <reference path="../createjs/createjs-lib.d.ts" />
+/// <reference path="./createjs-lib.d.ts" />
 // --------------------------------------------------
 
 
