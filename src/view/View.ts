@@ -101,8 +101,8 @@ namespace alm {
 						throwWarn(this.name || this, "getHideCommand() was called without being ready", !this.isReady);
 					}
 					this.isShown = false;
-					this.isHiding = true;
 					this.isShowing = false;
+					this.isHiding = true;
 					if (this.showCommand) {
 						this.showCommand.interrupt();
 						this.showCommand = null;
