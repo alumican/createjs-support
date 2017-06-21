@@ -26,7 +26,7 @@
 // /// <reference types="soundjs" />
 
 // Added
-/// <reference path="../createjs/createjs-lib.d.ts" />
+/// <reference path="./createjs-lib.d.ts" />
 /// <reference path="./easeljs.d.ts" />
 /// <reference path="./tweenjs.d.ts" />
 /// <reference path="./preloadjs.d.ts" />
