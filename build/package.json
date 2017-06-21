@@ -2,7 +2,7 @@
   "name": "createjs-support",
   "version": "1.0.0",
   "description": "CreateJS suppert library",
-  "main": "lib/command.js",
+  "main": "lib/createjs-support.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

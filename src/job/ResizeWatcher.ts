@@ -2,9 +2,6 @@
 
 namespace alm {
 
-	class SingletonEnforcer {
-	}
-
 	export class ResizeWatcher {
 
 		// --------------------------------------------------
@@ -13,7 +10,7 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		constructor(pvt:SingletonEnforcer) {
+		private constructor() {
 		}
 
 

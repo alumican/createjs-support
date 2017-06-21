@@ -4,8 +4,7 @@ module alm {
 
 	export class Num {
 
-		public static map(value:number, srcMin:number, srcMax:number, dstMin:number, dstMax:number):number
-		{
+		public static map(value:number, srcMin:number, srcMax:number, dstMin:number, dstMax:number):number {
 			if (srcMin == srcMax) return dstMin;
 			if (srcMin < srcMax) {
 				value = value < srcMin ? srcMin : value > srcMax ? srcMax : value;
@@ -15,8 +14,7 @@ module alm {
 			return (value - srcMin) * (dstMax - dstMin) / (srcMax - srcMin) + dstMin;
 		}
 
-		public static random(min:number = 0, max:number = 1):number
-		{
+		public static random(min:number = 0, max:number = 1):number {
 			return min + (max - min) * Math.random();
 		}
 

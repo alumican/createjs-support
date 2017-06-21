@@ -64,10 +64,10 @@ namespace alm {
 			this.getHideCommand(useTransition).execute();
 		}
 
-		public getShowCommand(useTransition:boolean = true):JPP.Command {
-			const command:JPP.Serial = new JPP.Serial();
+		public getShowCommand(useTransition:boolean = true):cmd.Command {
+			const command:cmd.Serial = new cmd.Serial();
 			command.addCommand(
-				new JPP.Func(():void => {
+				new cmd.Func(():void => {
 					if (this.isShown) return;
 					throwError(this.name || this, "getShowCommand() was called without being initialized", !this.isInitialized);
 					throwWarn(this.name || this, "getShowCommand() was called without being ready", !this.isReady);
@@ -81,7 +81,7 @@ namespace alm {
 					this.showCommand = command;
 					command.insertCommand(
 						this.implShow(this.view, useTransition),
-						new JPP.Func(():void => {
+						new cmd.Func(():void => {
 							this.showCommand = null;
 							this.isShowing = false;
 						})
@@ -91,10 +91,10 @@ namespace alm {
 			return command;
 		}
 
-		public getHideCommand(useTransition:boolean = true):JPP.Command {
-			const command:JPP.Serial = new JPP.Serial();
+		public getHideCommand(useTransition:boolean = true):cmd.Command {
+			const command:cmd.Serial = new cmd.Serial();
 			command.addCommand(
-				new JPP.Func(():void => {
+				new cmd.Func(():void => {
 					if (!this.isShown) return;
 					if (!this.isInitializing) {
 						throwError(this.name || this, "getHideCommand() was called without being initialized", !this.isInitialized);
@@ -110,7 +110,7 @@ namespace alm {
 					this.hideCommand = command;
 					command.insertCommand(
 						this.implHide(this.view, useTransition),
-						new JPP.Func(():void => {
+						new cmd.Func(():void => {
 							this.hideCommand = null;
 							this.isHiding = false;
 						})
@@ -123,8 +123,8 @@ namespace alm {
 		protected abstract implInitialize():T;
 		protected abstract implReady():void;
 		protected abstract implFinalize():void;
-		protected abstract implShow(view:T, useTransition:boolean):JPP.Command;
-		protected abstract implHide(view:T, useTransition:boolean):JPP.Command;
+		protected abstract implShow(view:T, useTransition:boolean):cmd.Command;
+		protected abstract implHide(view:T, useTransition:boolean):cmd.Command;
 
 
 
@@ -167,7 +167,7 @@ namespace alm {
 		public setName(value:string):void { this.name = value; }
 		private name:string;
 
-		private showCommand:JPP.Command;
-		private hideCommand:JPP.Command;
+		private showCommand:cmd.Command;
+		private hideCommand:cmd.Command;
 	}
 }

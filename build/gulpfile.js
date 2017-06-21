@@ -16,7 +16,7 @@ var uglify = require('gulp-uglify');
 
 //----------------------------------------
 gulp.task('compile', function() {
-	return gulp.src([SRC_DIR + SRC_FILENAME])
+	return gulp.src([SRC_DIR + '/' + SRC_FILENAME + '.ts'])
 		.pipe(plumber())
 		.pipe(sourcemaps.init('./'))
 		.pipe(typescript({ target: 'ES5', removeComments: true, declaration: true, outFile: DST_FILENAME + '.js' }))
@@ -26,7 +26,7 @@ gulp.task('compile', function() {
 
 //----------------------------------------
 gulp.task('compile-min', function() {
-	return gulp.src([SRC_DIR + SRC_FILENAME])
+	return gulp.src([SRC_DIR + '/' + SRC_FILENAME + '.ts'])
 		.pipe(plumber())
 		.pipe(sourcemaps.init('./'))
 		.pipe(typescript({ target: 'ES5', removeComments: true, outFile: DST_FILENAME + '.min.js' }))

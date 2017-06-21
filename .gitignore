@@ -23,6 +23,9 @@ bin-release/
 bin-release-tmp/
 bin-release-temp/
 
+### Node.js ###
+node_modules/
+
 
 ### Project ###
 src/**/*.js

@@ -1,6 +1,7 @@
-/* ---------- lib ---------- */
-/// <reference path="../../createjs/createjs.d.ts" />
-/// <reference path="../../jppcorelib/lib/jppcorelib.d.ts" />
+/* ---------- dependency ---------- */
+/// <reference path="../dependency/jquery/jquery.d.ts" />
+/// <reference path="../dependency/createjs/createjs.d.ts" />
+/// <reference path="../dependency/command/lib/command.d.ts" />
 
 
 
