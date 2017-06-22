@@ -1,6 +1,6 @@
 /// <reference path="../reference.ts" />
 
-module alm {
+namespace alm {
 
 	export class AnimateUtil {
 

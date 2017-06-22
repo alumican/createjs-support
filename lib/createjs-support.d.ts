@@ -6,7 +6,7 @@ declare namespace alm {
         [key: string]: T;
     }
 }
-declare module alm {
+declare namespace alm {
     class Num {
         static map(value: number, srcMin: number, srcMax: number, dstMin: number, dstMax: number): number;
         static random(min?: number, max?: number): number;
@@ -20,7 +20,7 @@ declare module alm {
         static DEG2RAD: number;
     }
 }
-declare module alm {
+declare namespace alm {
     class CommandUtil {
         static stop(command: cmd.Command): any;
         static fadeTo(target: createjs.DisplayObject, opacity: number, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
@@ -28,13 +28,13 @@ declare module alm {
         static fadeOut(target: createjs.DisplayObject, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
     }
 }
-declare module alm {
+declare namespace alm {
     class AnimateUtil {
         static getLinkageMovieClip(linkageId: string): createjs.MovieClip;
         static getChildByName(parent: createjs.Container, childName: string): createjs.DisplayObject;
     }
 }
-declare module alm {
+declare namespace alm {
     enum Align {
         Top_Left = 0,
         Top_Center = 1,
