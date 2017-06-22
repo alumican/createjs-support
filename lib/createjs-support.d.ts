@@ -76,6 +76,19 @@ declare function trace(...messages: any[]): void;
 declare function throwWarn(target: any, message: string, condition?: boolean): void;
 declare function throwError(target: any, message: string, condition?: boolean): void;
 declare namespace alm {
+    class DeviceInfo {
+        private constructor();
+        private static initialize();
+        static getIsDesktop(): boolean;
+        static getIsTablet(): boolean;
+        static getIsMobile(): boolean;
+        private static isDesktop;
+        private static isTablet;
+        private static isMobile;
+        private static isInitialized;
+    }
+}
+declare namespace alm {
     class Timer extends createjs.EventDispatcher {
         constructor(interval?: number, repeatCount?: number);
         start(): void;
