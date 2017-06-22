@@ -408,7 +408,7 @@ declare namespace alm {
     }
 }
 declare namespace alm {
-    abstract class View<T extends createjs.DisplayObject> extends createjs.EventDispatcher {
+    abstract class View<T extends createjs.DisplayObject | JQuery> extends createjs.EventDispatcher {
         constructor(view?: T);
         initialize(): void;
         ready(): void;
