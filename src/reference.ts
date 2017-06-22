@@ -14,6 +14,7 @@
 /// <reference path="util/AnimateUtil.ts" />
 /// <reference path="util/Boxer.ts" />
 /// <reference path="util/Logger.ts" />
+/// <reference path="util/DeviceInfo.ts" />
 
 /// <reference path="job/Timer.ts" />
 /// <reference path="event/TimerEvent.ts" />
