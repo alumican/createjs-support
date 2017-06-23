@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-/* ---------- lib ---------- */
-/// <reference path="../../createjs/createjs.d.ts" />
-/// <reference path="../../command/command.d.ts" />
-=======
 /* ---------- Dependency ---------- */
 /// <reference path="../dependency/jquery/jquery.d.ts" />
 /// <reference path="../dependency/createjs/createjs.d.ts" />
 /// <reference path="../dependency/command/lib/command.d.ts" />
->>>>>>> 72adf3468a36d4a9152e66fdde43ebaeaada3079
 
 
 
@@ -16,6 +10,7 @@
 /* ---------- project ---------- */
 /// <reference path="util/Hash.ts" />
 /// <reference path="util/Num.ts" />
+/// <reference path="util/Arr.ts" />
 /// <reference path="util/CommandUtil.ts" />
 /// <reference path="util/AnimateUtil.ts" />
 /// <reference path="util/Boxer.ts" />

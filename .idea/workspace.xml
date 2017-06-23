@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="268c6a44-74e6-4658-abed-b95f3e498db7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/Arr.ts" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/reference_BACKUP_5344.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/reference_BASE_5344.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/reference_LOCAL_5344.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/reference_REMOTE_5344.ts" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/createjs-support.d.ts" afterPath="$PROJECT_DIR$/lib/createjs-support.d.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/createjs-support.js" afterPath="$PROJECT_DIR$/lib/createjs-support.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/createjs-support.js.map" afterPath="$PROJECT_DIR$/lib/createjs-support.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/createjs-support.min.js" afterPath="$PROJECT_DIR$/lib/createjs-support.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/createjs-support.min.js.map" afterPath="$PROJECT_DIR$/lib/createjs-support.min.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/Num.ts" afterPath="$PROJECT_DIR$/src/util/Num.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reference.ts" afterPath="$PROJECT_DIR$/src/reference.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,12 +25,36 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Arr.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createjs-support.d.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/createjs-support.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+              <folding>
+                <marker date="1498191752000" expanded="true" signature="3:192" ph="//..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Arr.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/Arr.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
               <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reference.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/reference.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,11 +101,11 @@
         <option value="$PROJECT_DIR$/src/job/ScrollWatcher.ts" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/../Command.js/.gitignore" />
-        <option value="$PROJECT_DIR$/src/reference.ts" />
         <option value="$PROJECT_DIR$/src/view/View.ts" />
         <option value="$PROJECT_DIR$/lib/createjs-support.js" />
         <option value="$PROJECT_DIR$/src/util/Num.ts" />
         <option value="$PROJECT_DIR$/src/util/Arr.ts" />
+        <option value="$PROJECT_DIR$/src/reference.ts" />
         <option value="$PROJECT_DIR$/lib/createjs-support.d.ts" />
       </list>
     </option>
@@ -246,6 +273,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CreateJS Support" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="createjs-support" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dependency" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -707,12 +748,12 @@
       <workItem from="1498091859316" duration="142000" />
       <workItem from="1498094930429" duration="114000" />
       <workItem from="1498103385870" duration="183000" />
-      <workItem from="1498189755893" duration="1676000" />
+      <workItem from="1498189755893" duration="1996000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4774000" />
+    <option name="totallyTimeSpent" value="5094000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="1774" extended-state="0" />
@@ -1027,16 +1068,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reference.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/job/Timer.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -1124,14 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/createjs-support.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/Num.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1145,6 +1168,26 @@
         <state relative-caret-position="380">
           <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reference.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/createjs-support.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+          <folding>
+            <marker date="1498191752000" expanded="true" signature="3:192" ph="//..." />
+          </folding>
         </state>
       </provider>
     </entry>

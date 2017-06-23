@@ -29,6 +29,12 @@ declare namespace alm {
     }
 }
 declare namespace alm {
+    class Arr {
+        static unique(list: any[]): any[];
+        static duplicated(list: any[], unique?: boolean): any[];
+    }
+}
+declare namespace alm {
     class CommandUtil {
         static stop(command: cmd.Command): any;
         static fadeTo(target: createjs.DisplayObject, opacity: number, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
