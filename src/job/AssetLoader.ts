@@ -70,9 +70,13 @@ namespace alm {
 		public static addAnimateAsset(basePath:string):void {
 			this.initialize();
 			const manifest:Object = this.getAnimateManifest(basePath);
-			Logger.verbose("[AssetLoader] addAnimateAsset : basePath = " + basePath);
-			Logger.verbose(manifest);
-			this.loader.loadManifest(manifest, false);
+			if (manifest) {
+				Logger.verbose("[AssetLoader] addAnimateAsset : basePath = " + basePath);
+				Logger.verbose(manifest);
+				this.loader.loadManifest(manifest, false);
+			} else {
+				Logger.verbose("[AssetLoader] manifest file is not found");
+			}
 		}
 
 		public static cancel():void {
@@ -149,7 +153,12 @@ namespace alm {
 
 
 		private static getAnimateManifest(basePath:string = ""):object {
-			const manifest:{src:string,id:string}[] = window["lib"]["properties"]["manifest"];
+			const lib:any = window["lib"];
+			if (lib == null) return null;
+			const properties:any = lib["properties"];
+			if (properties == null) return null;
+			const manifest:{src:string,id:string}[] = properties["manifest"];
+			if (manifest == null) return null;
 			if (basePath != "") {
 				if (basePath.substr(-1, 1) != "/") {
 					basePath = basePath + "/";
