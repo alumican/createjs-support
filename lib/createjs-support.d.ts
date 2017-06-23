@@ -8,16 +8,24 @@ declare namespace alm {
 }
 declare namespace alm {
     class Num {
-        static map(value: number, srcMin: number, srcMax: number, dstMin: number, dstMax: number): number;
+        static map(value: number, srcMin: number, srcMax: number, dstMin: number, dstMax: number, clamp?: boolean): number;
         static random(min?: number, max?: number): number;
-        static PI: number;
+        static clamp(value: number, min: number, max: number): number;
+        static dist(x1: number, y1: number, x2: number, y2: number, squared?: boolean): number;
+        static radToDeg(radian: number): number;
+        static degToRad(degree: number): number;
+        static turn(from: number, to: number, radian?: boolean): number;
         static PI2: number;
+        static PI3: number;
+        static PI4: number;
+        static PI5: number;
+        static PI6: number;
         static PI_2: number;
         static PI_3: number;
         static PI_4: number;
         static PI_6: number;
-        static RAD2DEG: number;
-        static DEG2RAD: number;
+        private static RAD2DEG;
+        private static DEG2RAD;
     }
 }
 declare namespace alm {
