@@ -1,6 +1,3 @@
-// /// <reference path="../dependency/jquery/jquery.d.ts" />
-// /// <reference path="../dependency/createjs/createjs.d.ts" />
-// /// <reference path="../dependency/command/lib/command.d.ts" />
 declare namespace alm {
     interface Hash<T> {
         [key: string]: T;
@@ -37,9 +34,13 @@ declare namespace alm {
 declare namespace alm {
     class CommandUtil {
         static stop(command: cmd.Command): any;
-        static fadeTo(target: createjs.DisplayObject, opacity: number, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
-        static fadeIn(target: createjs.DisplayObject, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
-        static fadeOut(target: createjs.DisplayObject, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
+        static sequence(execute: boolean, ...commands: cmd.Command[]): cmd.Serial;
+        static fadeToCreatejs(target: createjs.DisplayObject, opacity: number, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
+        static fadeInCreatejs(target: createjs.DisplayObject, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
+        static fadeOutCreatejs(target: createjs.DisplayObject, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
+        static fadeToJquery(target: JQuery, opacity: number, duration: number, easing: cmd.EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
+        static fadeInJquery(target: JQuery, duration: number, easing: cmd.EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
+        static fadeOutJquery(target: JQuery, duration: number, easing: cmd.EasingFunction, switchDisplayTo?: string, switchVisibility?: boolean, execute?: boolean): cmd.Tween;
     }
 }
 declare namespace alm {
