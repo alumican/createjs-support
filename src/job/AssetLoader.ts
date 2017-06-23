@@ -72,7 +72,10 @@ namespace alm {
 
 		public static addAnimateAsset(basePath:string):void {
 			this.initialize();
-			this.loader.loadManifest(this.getAnimateManifest(basePath), false);
+			const manifest:Object = this.getAnimateManifest(basePath);
+			Logger.verbose("[AssetLoader] addAnimateAsset : basePath = " + basePath);
+			Logger.verbose(manifest);
+			this.loader.loadManifest(manifest, false);
 		}
 
 		public static cancel():void {
