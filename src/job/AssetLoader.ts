@@ -42,7 +42,7 @@ namespace alm {
 			this.isLoading = true;
 
 			this.initialize();
-			Logger.verbose("[AssetLoader] load");
+			Logger.verbose("[AssetLoader] load " + this.loader.getItems(false).length + " files");
 
 			this.setListener();
 			this.loader.load();
