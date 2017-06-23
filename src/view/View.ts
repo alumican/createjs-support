@@ -2,7 +2,7 @@
 
 namespace alm {
 
-	export abstract class View<T extends createjs.DisplayObject> extends createjs.EventDispatcher {
+	export abstract class View<T extends createjs.DisplayObject | JQuery> extends createjs.EventDispatcher {
 
 		// --------------------------------------------------
 		//

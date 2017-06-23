@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 /* ---------- lib ---------- */
 /// <reference path="../../createjs/createjs.d.ts" />
-/// <reference path="../../command/command.d.ts" />
-=======
-/* ---------- Dependency ---------- */
-/// <reference path="../dependency/jquery/jquery.d.ts" />
-/// <reference path="../dependency/createjs/createjs.d.ts" />
-/// <reference path="../dependency/command/lib/command.d.ts" />
->>>>>>> 72adf3468a36d4a9152e66fdde43ebaeaada3079
+/// <reference path="../../jppcorelib/lib/jppcorelib.d.ts" />
 
 
 
@@ -20,7 +13,6 @@
 /// <reference path="util/AnimateUtil.ts" />
 /// <reference path="util/Boxer.ts" />
 /// <reference path="util/Logger.ts" />
-/// <reference path="util/DeviceInfo.ts" />
 
 /// <reference path="job/Timer.ts" />
 /// <reference path="event/TimerEvent.ts" />
