@@ -9,7 +9,7 @@ namespace alm {
 			return null;
 		}
 
-		public static sequence(execute:boolean, ...commands:cmd.Command[]):cmd.Serial {
+		public static sequence(execute:boolean, ...commands:(cmd.Command|Function)[]):cmd.Serial {
 			const c:cmd.Serial = new cmd.Serial();
 			c.addCommand(...commands);
 			if (execute) c.execute();
