@@ -34,7 +34,7 @@ declare namespace alm {
 declare namespace alm {
     class CommandUtil {
         static stop(command: cmd.Command): any;
-        static sequence(execute: boolean, ...commands: cmd.Command[]): cmd.Serial;
+        static sequence(execute: boolean, ...commands: (cmd.Command | Function)[]): cmd.Serial;
         static fadeToCreatejs(target: createjs.DisplayObject, opacity: number, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
         static fadeInCreatejs(target: createjs.DisplayObject, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
         static fadeOutCreatejs(target: createjs.DisplayObject, duration: number, easing: cmd.EasingFunction, execute?: boolean): cmd.Tween;
