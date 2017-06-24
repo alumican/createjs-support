@@ -47,6 +47,7 @@ declare namespace alm {
     class AnimateUtil {
         static getLinkageMovieClip(linkageId: string): createjs.MovieClip;
         static getChildByName(parent: createjs.Container, childName: string): createjs.DisplayObject;
+        static getNominalBounds(target: createjs.DisplayObject): createjs.Rectangle;
     }
 }
 declare namespace alm {
