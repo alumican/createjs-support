@@ -362,10 +362,13 @@ declare namespace alm {
 declare namespace alm {
     class ScrollWatcherEvent extends createjs.Event {
         static SCROLL: string;
-        constructor(eventType: string, bubbles?: boolean, cancelable?: boolean, jqueryEvent?: JQueryEventObject);
+        constructor(eventType: string, bubbles?: boolean, cancelable?: boolean, jqueryEvent?: JQueryEventObject, scrollTop?: number, scrollBottom?: number, windowHeight?: number);
         clone(): ScrollWatcherEvent;
         toString(): string;
         jqueryEvent: JQueryEventObject;
+        scrollTop: number;
+        scrollBottom: number;
+        windowHeight: number;
     }
 }
 declare namespace alm {

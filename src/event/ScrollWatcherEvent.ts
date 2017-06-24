@@ -22,9 +22,12 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, bubbles:boolean = false, cancelable:boolean = false, jqueryEvent:JQueryEventObject = null) {
+		constructor(eventType:string, bubbles:boolean = false, cancelable:boolean = false, jqueryEvent:JQueryEventObject = null, scrollTop:number = 0, scrollBottom:number = 0, windowHeight:number = 0) {
 			super(eventType, bubbles, cancelable);
 			this.jqueryEvent = jqueryEvent;
+			this.scrollTop = scrollTop;
+			this.scrollBottom = scrollBottom;
+			this.windowHeight = windowHeight;
 		}
 
 
@@ -38,11 +41,11 @@ namespace alm {
 		// --------------------------------------------------
 
 		public clone():ScrollWatcherEvent {
-			return new ScrollWatcherEvent(this.type, this.bubbles, this.cancelable, this.jqueryEvent);
+			return new ScrollWatcherEvent(this.type, this.bubbles, this.cancelable, this.jqueryEvent, this.scrollTop, this.scrollBottom, this.windowHeight);
 		}
 
 		public toString():string {
-			return "[ScrollWatcherEvent (type=" + this.type + ")]";
+			return "[ScrollWatcherEvent (type=" + this.type + " scrollTop=" + this.scrollTop + " scrollBottom=" + this.scrollBottom + " windowHeight=" + this.windowHeight + ")]";
 		}
 
 
@@ -56,5 +59,8 @@ namespace alm {
 		// --------------------------------------------------
 
 		public jqueryEvent:JQueryEventObject;
+		public scrollTop:number;
+		public scrollBottom:number;
+		public windowHeight:number;
 	}
 }
