@@ -153,11 +153,7 @@ namespace alm {
 
 
 		private static getAnimateManifest(basePath:string = ""):object {
-			const lib:any = window["lib"];
-			if (lib == null) return null;
-			const properties:any = lib["properties"];
-			if (properties == null) return null;
-			const manifest:{src:string,id:string}[] = properties["manifest"];
+			const manifest:{src:string,id:string}[] = AnimateUtil.getManifest();
 			if (manifest == null) return null;
 			if (basePath != "") {
 				if (basePath.substr(-1, 1) != "/") {

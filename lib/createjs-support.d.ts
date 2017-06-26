@@ -48,6 +48,12 @@ declare namespace alm {
         static getLinkageMovieClip(linkageId: string): createjs.MovieClip;
         static getChildByName(parent: createjs.Container, childName: string): createjs.DisplayObject;
         static getNominalBounds(target: createjs.DisplayObject): createjs.Rectangle;
+        static getManifest(): {
+            src: string;
+            id: string;
+        }[];
+        private static getLib();
+        private static lib;
     }
 }
 declare namespace alm {
