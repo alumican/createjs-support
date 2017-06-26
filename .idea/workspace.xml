@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="268c6a44-74e6-4658-abed-b95f3e498db7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/createjs-support.d.ts" afterPath="$PROJECT_DIR$/lib/createjs-support.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/job/AssetLoader.ts" afterPath="$PROJECT_DIR$/src/job/AssetLoader.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/AnimateUtil.ts" afterPath="$PROJECT_DIR$/src/util/AnimateUtil.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,18 +19,28 @@
       <file leaf-file-name="AnimateUtil.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/AnimateUtil.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="46" column="1" lean-forward="true" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+            <state relative-caret-position="249">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AssetLoader.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AssetLoader.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/job/AssetLoader.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
-              <caret line="176" column="0" lean-forward="true" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+            <state relative-caret-position="132">
+              <caret line="183" column="40" lean-forward="false" selection-start-line="183" selection-start-column="40" selection-end-line="183" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createjs-support.d.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/createjs-support.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,9 +98,9 @@
         <option value="$PROJECT_DIR$/src/util/CommandUtil.ts" />
         <option value="$PROJECT_DIR$/src/event/ScrollWatcherEvent.ts" />
         <option value="$PROJECT_DIR$/src/job/ScrollWatcher.ts" />
-        <option value="$PROJECT_DIR$/lib/createjs-support.d.ts" />
-        <option value="$PROJECT_DIR$/src/util/AnimateUtil.ts" />
         <option value="$PROJECT_DIR$/src/job/AssetLoader.ts" />
+        <option value="$PROJECT_DIR$/src/util/AnimateUtil.ts" />
+        <option value="$PROJECT_DIR$/lib/createjs-support.d.ts" />
       </list>
     </option>
   </component>
@@ -676,12 +684,12 @@
       <workItem from="1498320322219" duration="599000" />
       <workItem from="1498399143524" duration="598000" />
       <workItem from="1498472820492" duration="3079000" />
-      <workItem from="1498481559700" duration="663000" />
+      <workItem from="1498481559700" duration="851000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16366000" />
+    <option name="totallyTimeSpent" value="16554000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="348" width="1702" height="1392" extended-state="0" />
@@ -1072,26 +1080,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/createjs-support.d.ts">
+    <entry file="file://$PROJECT_DIR$/src/job/AssetLoader.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        <state relative-caret-position="132">
+          <caret line="183" column="40" lean-forward="false" selection-start-line="183" selection-start-column="40" selection-end-line="183" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/AnimateUtil.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="46" column="1" lean-forward="true" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+        <state relative-caret-position="249">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/job/AssetLoader.ts">
+    <entry file="file://$PROJECT_DIR$/lib/createjs-support.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="176" column="0" lean-forward="true" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

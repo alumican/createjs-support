@@ -23,7 +23,7 @@ namespace alm {
 
 		public static getLib():any {
 			if (this.lib) return this.lib;
-			return this.lib = AnimateUtil.getComposition().getLib();
+			return this.lib = AnimateUtil.getComposition().getLibrary();
 		}
 
 		public static getImages():Hash<HTMLImageElement> {
