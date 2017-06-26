@@ -1,3 +1,6 @@
+/// <reference path="../dependency/jquery/jquery.d.ts" />
+/// <reference path="../dependency/createjs/createjs.d.ts" />
+/// <reference path="../dependency/command/lib/command.d.ts" />
 declare namespace alm {
     interface Hash<T> {
         [key: string]: T;
@@ -45,15 +48,19 @@ declare namespace alm {
 }
 declare namespace alm {
     class AnimateUtil {
-        static getLinkageMovieClip(linkageId: string): createjs.MovieClip;
         static getChildByName(parent: createjs.Container, childName: string): createjs.DisplayObject;
         static getNominalBounds(target: createjs.DisplayObject): createjs.Rectangle;
+        static getLinkageMovieClip(linkageId: string): createjs.MovieClip;
         static getManifest(): {
             src: string;
             id: string;
         }[];
-        private static getLib();
+        static getLib(): any;
+        static getImages(): Hash<HTMLImageElement>;
+        static getComposition(): any;
+        private static composition;
         private static lib;
+        private static images;
     }
 }
 declare namespace alm {
@@ -413,7 +420,7 @@ declare namespace alm {
         private static isInitialized;
         private static eventDispatcher;
         private static loader;
-        private static windowImages;
+        private static animateImages;
     }
 }
 declare namespace alm {

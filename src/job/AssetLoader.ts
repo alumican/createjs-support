@@ -34,7 +34,7 @@ namespace alm {
 			this.loader = new createjs.LoadQueue();
 			this.eventDispatcher = new createjs.EventDispatcher();
 
-			this.windowImages = window["images"] = window["images"] || {};
+			this.animateImages = AnimateUtil.getImages() || {};
 		}
 
 		public static load():void {
@@ -180,7 +180,7 @@ namespace alm {
 			Logger.verbose("[AssetLoader] file load");
 			const itemId:string = event.item.id;
 			const result:HTMLImageElement = event.result;
-			if (itemId) AssetLoader.windowImages[itemId] = result;
+			if (itemId) AssetLoader.animateImages[itemId] = result;
 			AssetLoader.eventDispatcher.dispatchEvent(new AssetLoaderEvent(AssetLoaderEvent.FILE_LOAD, false, false, event.progress, event.loaded, event.total, result));
 		};
 
@@ -226,6 +226,6 @@ namespace alm {
 		private static isInitialized:boolean = false;
 		private static eventDispatcher:createjs.EventDispatcher = null;
 		private static loader:createjs.LoadQueue;
-		private static windowImages:alm.Hash<HTMLImageElement>;
+		private static animateImages:Hash<HTMLImageElement>;
 	}
 }
