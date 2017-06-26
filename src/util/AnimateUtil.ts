@@ -24,7 +24,7 @@ namespace alm {
 			if (this.lib) return this.lib;
 			const compositions:any = window["AdobeAn"]["compositions"];
 			for (let key in compositions) {
-				this.lib = compositions["key"].getLibrary();
+				this.lib = compositions[key].getLibrary();
 			}
 			return this.lib;
 		}
