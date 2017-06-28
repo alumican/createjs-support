@@ -74,10 +74,16 @@ namespace alm {
 					this.isShown = true;
 					this.isShowing = true;
 					this.isHiding = false;
+
+					if (this.showCommand) {
+						this.showCommand.interrupt();
+						this.showCommand = null;
+					}
 					if (this.hideCommand) {
 						this.hideCommand.interrupt();
 						this.hideCommand = null;
 					}
+
 					this.showCommand = command;
 					command.insertCommand(
 						this.implShow(this.view, useTransition),
@@ -103,10 +109,16 @@ namespace alm {
 					this.isShown = false;
 					this.isShowing = false;
 					this.isHiding = true;
+
 					if (this.showCommand) {
 						this.showCommand.interrupt();
 						this.showCommand = null;
 					}
+					if (this.hideCommand) {
+						this.hideCommand.interrupt();
+						this.hideCommand = null;
+					}
+
 					this.hideCommand = command;
 					command.insertCommand(
 						this.implHide(this.view, useTransition),
