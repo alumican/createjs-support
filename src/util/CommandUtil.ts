@@ -42,6 +42,7 @@ namespace alm {
 					if (switchVisibility) target.css("visibility", "visible");
 				}
 			}, (progressTime:number, progressValue:number):void => {
+				trace(progressTime, progressValue);
 				target.css("opacity", progressValue);
 			}, ():void => {
 				if (opacity <= 0) {
