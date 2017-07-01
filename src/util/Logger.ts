@@ -15,19 +15,19 @@ namespace alm {
 		public static level: number = LoggerLevel.Verbose;
 
 		public static verbose(...messages:any[]): void {
-			if (Logger.level <= LoggerLevel.Verbose) console.log.apply(console, Array.prototype.slice.call(messages.unshift("Verbose: ")));
+			if (Logger.level <= LoggerLevel.Verbose) console.log.apply(console, Array.prototype.slice.call(["Verbose: "].concat(messages)));
 		}
 
 		public static trace(...messages:any[]): void {
-			if (Logger.level <= LoggerLevel.Trace) console.log.apply(console, Array.prototype.slice.call(messages.unshift("Trace: ")));
+			if (Logger.level <= LoggerLevel.Trace) console.log.apply(console, Array.prototype.slice.call(["Info: "].concat(messages)));
 		}
 
 		public static warn(...messages:any[]): void {
-			if (Logger.level <= LoggerLevel.Warn) console.log.apply(console, Array.prototype.slice.call(messages.unshift("Warn: ")));
+			if (Logger.level <= LoggerLevel.Warn) console.log.apply(console, Array.prototype.slice.call(["Warn: "].concat(messages)));
 		}
 
 		public static error(...messages:any[]): void {
-			if (Logger.level <= LoggerLevel.Error) console.log.apply(console, Array.prototype.slice.call(messages.unshift("Error: ")));
+			if (Logger.level <= LoggerLevel.Error) console.log.apply(console, Array.prototype.slice.call(["Error: "].concat(messages)));
 		}
 
 		public static warnIf(target:any, message:string, condition:boolean = true): void {
