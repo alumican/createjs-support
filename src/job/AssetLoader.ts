@@ -177,7 +177,7 @@ namespace alm {
 
 
 		private static loaderFileLoadHandler = (event:createjs.Event):void => {
-			Logger.verbose("[AssetLoader] file load");
+			Logger.verbose("[AssetLoader] fileLoad");
 			const itemId:string = event.item.id;
 			const result:HTMLImageElement = event.result;
 			if (itemId) AssetLoader.animateImages[itemId] = result;
@@ -185,7 +185,7 @@ namespace alm {
 		};
 
 		private static loaderErrorHandler = (event:createjs.ErrorEvent):void => {
-			Logger.verbose("[AssetLoader] error : title = " + event.title + ", message = " + event.message);
+			Logger.error("[AssetLoader] error : ", event);
 			AssetLoader.eventDispatcher.dispatchEvent(new AssetLoaderEvent(AssetLoaderEvent.ERROR));
 		};
 
@@ -195,7 +195,7 @@ namespace alm {
 		};
 
 		private static loaderFileErrorHandler = (event:createjs.Event):void => {
-			Logger.verbose("[AssetLoader] file error : " + event.error);
+			Logger.error("[AssetLoader] fileError : ", event);
 			AssetLoader.eventDispatcher.dispatchEvent(new AssetLoaderEvent(AssetLoaderEvent.FILE_ERROR, false, false, event.progress, event.loaded, event.total));
 		};
 

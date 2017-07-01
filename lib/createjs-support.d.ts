@@ -94,8 +94,10 @@ declare namespace alm {
         static level: number;
         static verbose(...messages: any[]): void;
         static trace(...messages: any[]): void;
-        static warn(target: any, message: string, condition?: boolean): void;
-        static error(target: any, message: string, condition?: boolean): void;
+        static warn(...messages: any[]): void;
+        static error(...messages: any[]): void;
+        static warnIf(target: any, message: string, condition?: boolean): void;
+        static errorIf(target: any, message: string, condition?: boolean): void;
     }
 }
 declare function trace(...messages: any[]): void;

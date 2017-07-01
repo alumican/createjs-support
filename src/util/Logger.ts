@@ -15,24 +15,27 @@ namespace alm {
 		public static level: number = LoggerLevel.Verbose;
 
 		public static verbose(...messages:any[]): void {
-			if (Logger.level <= LoggerLevel.Verbose) console.log.apply(console, Array.prototype.slice.call(messages));
+			if (Logger.level <= LoggerLevel.Verbose) console.log.apply(console, Array.prototype.slice.call(messages.unshift("Verbose: ")));
 		}
 
 		public static trace(...messages:any[]): void {
-			if (Logger.level <= LoggerLevel.Trace) console.log.apply(console, Array.prototype.slice.call(messages));
+			if (Logger.level <= LoggerLevel.Trace) console.log.apply(console, Array.prototype.slice.call(messages.unshift("Trace: ")));
 		}
 
-		public static warn(target:any, message:string, condition:boolean = true): void {
-			if (Logger.level <= LoggerLevel.Warn && condition) {
-				trace("[WARNING] " + message + " : ", target);
-			}
+		public static warn(...messages:any[]): void {
+			if (Logger.level <= LoggerLevel.Warn) console.log.apply(console, Array.prototype.slice.call(messages.unshift("Warn: ")));
 		}
 
-		public static error(target:any, message: string, condition:boolean = true): void {
-			if (Logger.level <= LoggerLevel.Error && condition) {
-				trace(target);
-				throw new Error("[ERROR] " + message);
-			}
+		public static error(...messages:any[]): void {
+			if (Logger.level <= LoggerLevel.Error) console.log.apply(console, Array.prototype.slice.call(messages.unshift("Error: ")));
+		}
+
+		public static warnIf(target:any, message:string, condition:boolean = true): void {
+			if (Logger.level <= LoggerLevel.Warn && condition) Logger.warn(message + " : ", target);
+		}
+
+		public static errorIf(target:any, message: string, condition:boolean = true): void {
+			if (Logger.level <= LoggerLevel.Error && condition) Logger.error(message + " : ", target);
 		}
 	}
 }
@@ -42,9 +45,9 @@ function trace(...messages:any[]):void {
 }
 
 function throwWarn(target:any, message:string, condition:boolean = true):void {
-	alm.Logger.warn.apply(null, arguments);
+	alm.Logger.warnIf.apply(null, arguments);
 }
 
 function throwError(target:any, message:string, condition:boolean = true):void {
-	alm.Logger.error.apply(null, arguments);
+	alm.Logger.errorIf.apply(null, arguments);
 }
