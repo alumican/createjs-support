@@ -85,7 +85,7 @@ declare namespace alm {
 declare namespace alm {
     enum LoggerLevel {
         Verbose = 0,
-        Trace = 1,
+        Info = 1,
         Warn = 2,
         Error = 3,
         Silent = 4,
@@ -93,7 +93,7 @@ declare namespace alm {
     class Logger {
         static level: number;
         static verbose(...messages: any[]): void;
-        static trace(...messages: any[]): void;
+        static info(...messages: any[]): void;
         static warn(...messages: any[]): void;
         static error(...messages: any[]): void;
         static warnIf(target: any, message: string, condition?: boolean): void;
