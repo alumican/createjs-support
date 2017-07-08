@@ -122,7 +122,7 @@ declare namespace alm {
         private static isInitialized;
     }
 }
-declare namespace project {
+declare namespace alm {
     class Rotator {
         constructor(angle?: number, velocity?: number, radian?: boolean);
         getAngle(radian?: boolean): number;
