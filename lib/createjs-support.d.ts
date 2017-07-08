@@ -1,4 +1,4 @@
-/// <reference path="../dependency/command/lib/command.d.ts" />
+// /// <reference path="../dependency/command/lib/command.d.ts" />
 /// <reference types="easeljs" />
 /// <reference types="jquery" />
 /// <reference types="createjs-lib" />
