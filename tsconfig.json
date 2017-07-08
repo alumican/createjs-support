@@ -4,6 +4,13 @@
       "es6",
       "dom"
     ],
+    "typeRoots": [
+      "build/node_modules/@types/"
+    ],
+    "types": [
+      "jquery",
+      "createjs"
+    ],
     "noEmit": true,
     "noImplicitAny": false,
     "noImplicitThis": false,

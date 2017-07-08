@@ -69,7 +69,7 @@ namespace alm {
 
 
 
-		private static windowKeyDownHandler = (event:JQueryKeyEventObject):void => {
+		private static windowKeyDownHandler = (event:JQuery.Event):void => {
 			const keyCode:number = event.keyCode;
 			if (KeyWatcher.isKeyPressedByKeyCode[keyCode] == null) {
 				KeyWatcher.isKeyPressedByKeyCode[keyCode] = true;
@@ -78,7 +78,7 @@ namespace alm {
 			}
 		};
 
-		private static windowKeyUpHandler = (event:JQueryKeyEventObject):void => {
+		private static windowKeyUpHandler = (event:JQuery.Event):void => {
 			const keyCode:number = event.keyCode;
 			if (KeyWatcher.isKeyPressedByKeyCode[keyCode] != null) {
 				delete KeyWatcher.isKeyPressedByKeyCode[keyCode];

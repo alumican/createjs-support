@@ -15,11 +15,23 @@ var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 
 //----------------------------------------
+function compilerOptions(declaration, outFile) {
+	return {
+		declaration: declaration,
+		outFile: outFile,
+		removeComments: true,
+		target: 'ES5',
+		"lib": ["es6", "dom"],
+		"typeRoots": ["node_modules/@types/"],
+		"types": ["jquery", "createjs"]
+	};
+}
+
 gulp.task('compile', function() {
 	return gulp.src([SRC_DIR + '/' + SRC_FILENAME + '.ts'])
 		.pipe(plumber())
 		.pipe(sourcemaps.init('./'))
-		.pipe(typescript({ target: 'ES5', removeComments: true, declaration: true, outFile: DST_FILENAME + '.js' }))
+		.pipe(typescript(compilerOptions(true, DST_FILENAME + '.js')))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(DST_DIR));
 });
@@ -29,7 +41,7 @@ gulp.task('compile-min', function() {
 	return gulp.src([SRC_DIR + '/' + SRC_FILENAME + '.ts'])
 		.pipe(plumber())
 		.pipe(sourcemaps.init('./'))
-		.pipe(typescript({ target: 'ES5', removeComments: true, outFile: DST_FILENAME + '.min.js' }))
+		.pipe(typescript(compilerOptions(false, DST_FILENAME + '.min.js')))
 		.pipe(uglify())
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(DST_DIR));

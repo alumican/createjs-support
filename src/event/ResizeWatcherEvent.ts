@@ -22,7 +22,7 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, bubbles:boolean = false, cancelable:boolean = false, jqueryEvent:JQueryEventObject = null, stageWidth:number = 0, stageHeight:number = 0) {
+		constructor(eventType:string, bubbles:boolean = false, cancelable:boolean = false, jqueryEvent:JQuery.Event = null, stageWidth:number = 0, stageHeight:number = 0) {
 			super(eventType, bubbles, cancelable);
 			this.jqueryEvent = jqueryEvent;
 			this.stageWidth = stageWidth;
@@ -57,7 +57,7 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		public jqueryEvent:JQueryEventObject;
+		public jqueryEvent:JQuery.Event;
 
 		public stageWidth:number;
 		public stageHeight:number;

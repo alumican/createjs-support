@@ -19,5 +19,9 @@
     "gulp-typescript": "*",
     "gulp-uglify": "*",
     "typescript": "*"
+  },
+  "devDependencies": {
+    "@types/jquery": "*",
+    "@types/createjs": "*"
   }
 }

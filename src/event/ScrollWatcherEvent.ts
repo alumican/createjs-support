@@ -22,7 +22,7 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, bubbles:boolean = false, cancelable:boolean = false, jqueryEvent:JQueryEventObject = null, scrollTop:number = 0, scrollBottom:number = 0, windowHeight:number = 0) {
+		constructor(eventType:string, bubbles:boolean = false, cancelable:boolean = false, jqueryEvent:JQuery.Event = null, scrollTop:number = 0, scrollBottom:number = 0, windowHeight:number = 0) {
 			super(eventType, bubbles, cancelable);
 			this.jqueryEvent = jqueryEvent;
 			this.scrollTop = scrollTop;
@@ -58,7 +58,7 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		public jqueryEvent:JQueryEventObject;
+		public jqueryEvent:JQuery.Event;
 		public scrollTop:number;
 		public scrollBottom:number;
 		public windowHeight:number;

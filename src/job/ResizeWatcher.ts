@@ -76,7 +76,7 @@ namespace alm {
 
 
 
-		private static windowResizeHandler = (event:JQueryEventObject):void => {
+		private static windowResizeHandler = (event:JQuery.Event):void => {
 			ResizeWatcher.apply();
 			ResizeWatcher.eventDispatcher.dispatchEvent(new ResizeWatcherEvent(ResizeWatcherEvent.RESIZE, false, false, event, ResizeWatcher.stageWidth, ResizeWatcher.stageHeight));
 		};

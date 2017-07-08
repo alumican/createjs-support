@@ -84,12 +84,12 @@ namespace alm {
 
 
 
-		private static windowScrollHandler = (event:JQueryEventObject):void => {
+		private static windowScrollHandler = (event:JQuery.Event):void => {
 			ScrollWatcher.apply();
 			ScrollWatcher.eventDispatcher.dispatchEvent(new ScrollWatcherEvent(ScrollWatcherEvent.SCROLL, false, false, event, ScrollWatcher.scrollTop, ScrollWatcher.scrollBottom, ScrollWatcher.windowHeight));
 		};
 
-		private static windowResizeHandler = (event:JQueryEventObject):void => {
+		private static windowResizeHandler = (event:JQuery.Event):void => {
 			ScrollWatcher.apply();
 		};
 

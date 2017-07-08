@@ -23,7 +23,7 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		constructor(eventType:string, bubbles:boolean = false, cancelable:boolean = false, jqueryEvent:JQueryKeyEventObject = null) {
+		constructor(eventType:string, bubbles:boolean = false, cancelable:boolean = false, jqueryEvent:JQuery.Event = null) {
 			super(eventType, bubbles, cancelable);
 			this.jqueryEvent = jqueryEvent;
 			this.key = this.jqueryEvent.key;
@@ -61,7 +61,7 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
-		public jqueryEvent:JQueryKeyEventObject;
+		public jqueryEvent:JQuery.Event;
 		public key:string;
 		public keyCode:number;
 		public altKey:boolean;

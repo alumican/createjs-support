@@ -1,6 +1,5 @@
-/* ---------- Dependency ---------- */
-/// <reference path="../dependency/jquery/jquery.d.ts" />
-/// <reference path="../dependency/createjs/createjs.d.ts" />
+/// <reference types="jquery" />
+/// <reference types="createjs" />
 /// <reference path="../dependency/command/lib/command.d.ts" />
 
 
@@ -16,6 +15,7 @@
 /// <reference path="util/Boxer.ts" />
 /// <reference path="util/Logger.ts" />
 /// <reference path="util/DeviceInfo.ts" />
+/// <reference path="util/Rotator.ts" />
 
 /// <reference path="job/Timer.ts" />
 /// <reference path="event/TimerEvent.ts" />

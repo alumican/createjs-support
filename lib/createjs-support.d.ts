@@ -1,3 +1,7 @@
+/// <reference path="../dependency/command/lib/command.d.ts" />
+/// <reference types="easeljs" />
+/// <reference types="jquery" />
+/// <reference types="createjs-lib" />
 declare namespace alm {
     interface Hash<T> {
         [key: string]: T;
@@ -45,6 +49,8 @@ declare namespace alm {
 }
 declare namespace alm {
     class AnimateUtil {
+        static getChildren(parent: createjs.MovieClip): createjs.MovieClip[];
+        private static getMovieClipsFromStateList(stateList);
         static getChildByName(parent: createjs.Container, childName: string): createjs.DisplayObject;
         static getNominalBounds(target: createjs.DisplayObject): createjs.Rectangle;
         static getLinkageMovieClip(linkageId: string): createjs.MovieClip;
@@ -116,6 +122,29 @@ declare namespace alm {
         private static isInitialized;
     }
 }
+declare namespace project {
+    class Rotator {
+        constructor(angle?: number, velocity?: number, radian?: boolean);
+        getAngle(radian?: boolean): number;
+        setAngle(angle: number, radian?: boolean): void;
+        getVelocity(radian?: boolean): number;
+        setVelocity(velocity: number, radian?: boolean): void;
+        update(): void;
+        getSin(length?: number): number;
+        getCos(length?: number): number;
+        getTan(length?: number): number;
+        getMagnitude(length?: number): number;
+        getVector(length?: number, xy?: {
+            x: number;
+            y: number;
+        }): {
+            x: number;
+            y: number;
+        };
+        private angle;
+        private velocity;
+    }
+}
 declare namespace alm {
     class Timer extends createjs.EventDispatcher {
         constructor(interval?: number, repeatCount?: number);
@@ -183,10 +212,10 @@ declare namespace alm {
     class KeyWatcherEvent extends createjs.Event {
         static KEY_UP: string;
         static KEY_DOWN: string;
-        constructor(eventType: string, bubbles?: boolean, cancelable?: boolean, jqueryEvent?: JQueryKeyEventObject);
+        constructor(eventType: string, bubbles?: boolean, cancelable?: boolean, jqueryEvent?: JQuery.Event);
         clone(): KeyWatcherEvent;
         toString(): string;
-        jqueryEvent: JQueryKeyEventObject;
+        jqueryEvent: JQuery.Event;
         key: string;
         keyCode: number;
         altKey: boolean;
@@ -339,10 +368,10 @@ declare namespace alm {
 declare namespace alm {
     class ResizeWatcherEvent extends createjs.Event {
         static RESIZE: string;
-        constructor(eventType: string, bubbles?: boolean, cancelable?: boolean, jqueryEvent?: JQueryEventObject, stageWidth?: number, stageHeight?: number);
+        constructor(eventType: string, bubbles?: boolean, cancelable?: boolean, jqueryEvent?: JQuery.Event, stageWidth?: number, stageHeight?: number);
         clone(): ResizeWatcherEvent;
         toString(): string;
-        jqueryEvent: JQueryEventObject;
+        jqueryEvent: JQuery.Event;
         stageWidth: number;
         stageHeight: number;
     }
@@ -375,10 +404,10 @@ declare namespace alm {
 declare namespace alm {
     class ScrollWatcherEvent extends createjs.Event {
         static SCROLL: string;
-        constructor(eventType: string, bubbles?: boolean, cancelable?: boolean, jqueryEvent?: JQueryEventObject, scrollTop?: number, scrollBottom?: number, windowHeight?: number);
+        constructor(eventType: string, bubbles?: boolean, cancelable?: boolean, jqueryEvent?: JQuery.Event, scrollTop?: number, scrollBottom?: number, windowHeight?: number);
         clone(): ScrollWatcherEvent;
         toString(): string;
-        jqueryEvent: JQueryEventObject;
+        jqueryEvent: JQuery.Event;
         scrollTop: number;
         scrollBottom: number;
         windowHeight: number;
