@@ -1,4 +1,3 @@
-// /// <reference path="../dependency/command/lib/command.d.ts" />
 /// <reference types="easeljs" />
 /// <reference types="jquery" />
 /// <reference types="createjs-lib" />
@@ -116,9 +115,11 @@ declare namespace alm {
         static getIsDesktop(): boolean;
         static getIsTablet(): boolean;
         static getIsMobile(): boolean;
+        static getIsRetina(): boolean;
         private static isDesktop;
         private static isTablet;
         private static isMobile;
+        private static isRetina;
         private static isInitialized;
     }
 }

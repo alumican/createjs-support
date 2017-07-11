@@ -45,6 +45,8 @@ namespace alm {
 				|| u.indexOf("blackberry") != -1;
 
 			this.isDesktop = !this.isTablet && !this.isMobile;
+
+			this.isRetina = window.devicePixelRatio == 2;
 		}
 
 		public static getIsDesktop():boolean {
@@ -62,6 +64,11 @@ namespace alm {
 			return this.isMobile;
 		}
 
+		public static getIsRetina():boolean {
+			this.initialize();
+			return this.isRetina;
+		}
+
 
 
 
@@ -75,6 +82,8 @@ namespace alm {
 		private static isDesktop:boolean;
 		private static isTablet:boolean;
 		private static isMobile:boolean;
+
+		private static isRetina:boolean;
 
 		private static isInitialized:boolean = false;
 	}
