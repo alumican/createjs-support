@@ -46,7 +46,7 @@ namespace alm {
 
 			this.isDesktop = !this.isTablet && !this.isMobile;
 
-			this.isRetina = window.devicePixelRatio == 2;
+			this.isRetina = Math.round(window.devicePixelRatio) == 2;
 		}
 
 		public static getIsDesktop():boolean {
