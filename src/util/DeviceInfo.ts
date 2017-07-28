@@ -46,6 +46,9 @@ namespace alm {
 
 			this.isDesktop = !this.isTablet && !this.isMobile;
 
+			this.isIOS = u.indexOf("ipad") != -1 || u.indexOf("iphone") != -1 || u.indexOf("ipod") != -1;
+			this.isAndroid = u.indexOf("android") != -1 && u.indexOf("mobile") != -1;
+
 			this.isRetina = Math.round(window.devicePixelRatio) == 2;
 		}
 
@@ -62,6 +65,16 @@ namespace alm {
 		public static getIsMobile():boolean {
 			this.initialize();
 			return this.isMobile;
+		}
+
+		public static getIsIOS():boolean {
+			this.initialize();
+			return this.isIOS;
+		}
+
+		public static getIsAndroid():boolean {
+			this.initialize();
+			return this.isAndroid;
 		}
 
 		public static getIsRetina():boolean {
@@ -84,6 +97,9 @@ namespace alm {
 		private static isMobile:boolean;
 
 		private static isRetina:boolean;
+
+		private static isIOS:boolean;
+		private static isAndroid:boolean;
 
 		private static isInitialized:boolean = false;
 	}

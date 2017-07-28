@@ -115,11 +115,15 @@ declare namespace alm {
         static getIsDesktop(): boolean;
         static getIsTablet(): boolean;
         static getIsMobile(): boolean;
+        static getIsIOS(): boolean;
+        static getIsAndroid(): boolean;
         static getIsRetina(): boolean;
         private static isDesktop;
         private static isTablet;
         private static isMobile;
         private static isRetina;
+        private static isIOS;
+        private static isAndroid;
         private static isInitialized;
     }
 }
