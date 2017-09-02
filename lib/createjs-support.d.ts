@@ -1,4 +1,3 @@
-/// <reference path="../dependency/command/lib/command.d.ts" />
 declare namespace alm {
     interface Hash<T> {
         [key: string]: T;
