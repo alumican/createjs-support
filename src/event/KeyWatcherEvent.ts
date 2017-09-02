@@ -10,6 +10,7 @@ namespace alm {
 		//
 		// --------------------------------------------------
 
+		static KEY_LONG_PRESS:string = "keyLongPress";
 		static KEY_UP:string = "keyUp";
 		static KEY_DOWN:string = "keyDown";
 

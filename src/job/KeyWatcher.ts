@@ -75,6 +75,8 @@ namespace alm {
 				KeyWatcher.isKeyPressedByKeyCode[keyCode] = true;
 				++KeyWatcher.pressedKeyCount;
 				KeyWatcher.eventDispatcher.dispatchEvent(new KeyWatcherEvent(KeyWatcherEvent.KEY_DOWN, false, false, event));
+			} else if (KeyWatcher.isContinuousPressEnabled) {
+				KeyWatcher.eventDispatcher.dispatchEvent(new KeyWatcherEvent(KeyWatcherEvent.KEY_DOWN, false, false, event));
 			}
 		};
 
@@ -106,7 +108,14 @@ namespace alm {
 		public static getIsKeyPressed(keyCode:number):boolean { return this.isKeyPressedByKeyCode[keyCode] != null; }
 		private static isKeyPressedByKeyCode:Hash<boolean> = {};
 
+
+		public static getIsContinuousPressEnabled():boolean { return this.isContinuousPressEnabled; }
+		public static setIsContinuousPressEnabled(enabled:boolean):void { this.isContinuousPressEnabled = enabled; }
+		private static isContinuousPressEnabled:boolean = false;
+
 		private static isInitialized:boolean = false;
+		private static pressTimer:alm.Timer = null;
+		private static isLongPressed:boolean = false;
 		private static eventDispatcher:createjs.EventDispatcher = null;
 	}
 }

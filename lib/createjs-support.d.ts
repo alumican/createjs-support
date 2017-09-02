@@ -1,6 +1,4 @@
-/// <reference types="easeljs" />
-/// <reference types="jquery" />
-/// <reference types="createjs-lib" />
+/// <reference path="../dependency/command/lib/command.d.ts" />
 declare namespace alm {
     interface Hash<T> {
         [key: string]: T;
@@ -209,12 +207,18 @@ declare namespace alm {
         private static pressedKeyCount;
         static getIsKeyPressed(keyCode: number): boolean;
         private static isKeyPressedByKeyCode;
+        static getIsContinuousPressEnabled(): boolean;
+        static setIsContinuousPressEnabled(enabled: boolean): void;
+        private static isContinuousPressEnabled;
         private static isInitialized;
+        private static pressTimer;
+        private static isLongPressed;
         private static eventDispatcher;
     }
 }
 declare namespace alm {
     class KeyWatcherEvent extends createjs.Event {
+        static KEY_LONG_PRESS: string;
         static KEY_UP: string;
         static KEY_DOWN: string;
         constructor(eventType: string, bubbles?: boolean, cancelable?: boolean, jqueryEvent?: JQuery.Event);
